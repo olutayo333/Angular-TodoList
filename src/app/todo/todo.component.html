@@ -1,0 +1,37 @@
+<div class="container-fluid mt-5">
+    
+    <div class="row col-lg-4 col-11 shadow px-3 py-4 col-11 mx-auto ">
+        <h1 class="my-4 text-center text-primary"><u>Todo List</u></h1>
+        <input type="text" class="form-control mx-auto my-2" placeholder="Todo Item" [(ngModel)]= "todoItem" >
+        <button (click)="addTodo()" class="btn btn-primary" > Add To Todo  </button> <hr>
+        <hr>
+        <p *ngIf="todoArray.length <=0"> 
+            No Item Yet 
+        </p>
+        <table class="table">
+            <tr>
+                <th> S/N </th>
+                <th> Todo Items </th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+       
+            <tr *ngFor="let i=index; let item of todoArray">
+                <!-- <td>{{item.todo_Index}}</td> -->
+                <td>{{i + 1}}</td>
+                <td> {{item.todo_Item}}   </td>
+                <td> <button class="btn btn-small btn-outline-info" (click)="edit(i)"> Edit </button></td>
+                <td><button class="btn btn-small btn-outline-danger" (click)="delete(i)"> Delete </button></td>
+            </tr>
+            
+
+        </table>
+        
+
+    
+    </div>
+    <div class="mx-auto row col-lg-4 col-11 my-2">
+       
+       
+    </div>
+</div>
