@@ -3,6 +3,7 @@
     <div class="row col-lg-4 col-11 shadow px-3 py-4 col-11 mx-auto ">
         <h1 class="my-4 text-center text-primary"><u>Todo List</u></h1>
         <input type="text" class="form-control mx-auto my-2" placeholder="Todo Item" [(ngModel)]= "todoItem" >
+        <input type="text" class="form-control mx-auto my-2" placeholder="Todo Description" [(ngModel)]= "todoDesc" >
         <button (click)="addTodo()" class="btn btn-primary" > Add To Todo  </button> <hr>
         <hr>
         <p *ngIf="todoArray.length <=0"> 

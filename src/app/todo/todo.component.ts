@@ -1,6 +1,7 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ServicesService } from '../services.service';
 
 @Component({
   selector: 'app-todo',
@@ -10,14 +11,19 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './todo.component.css'
 })
 export class TodoComponent {
-  public todoItem ="";
-  public todoObj:any = {todo_Item:"", todo_index:0}
+  constructor(public serve:ServicesService){}
+
+  public todoItem =""; public todoDesc="";
+  public todoObj:any = {todo_name:"", todo_desc:""}
   public todoArray:any = []
   public index = 0
+  
   addTodo(){
-    this.todoObj = {todo_Item: this.todoItem, todo_Index:this.index + 1}
+    this.todoObj = {todo_name: this.todoItem, todo_desc:this.todoDesc}
     this.todoArray.push(this.todoObj)
     this.todoItem=""; this.index += 1;
+    this.serve.addTodo(this.todoObj).subscribe(data=>{console.log(data);
+    })
     console.log(this.todoArray);
     
   }
